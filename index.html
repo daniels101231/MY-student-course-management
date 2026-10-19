@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Course Management</title>
+  <meta name="description" content="A simple student course management dashboard for organizing courses and tracking units.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">SC</span><span>Course<span class="brand-light">Flow</span></span></div>
+      <div class="side-label">WORKSPACE</div>
+      <div class="nav-item active"><span>▦</span> My Courses</div>
+      <div class="side-note"><div class="note-icon">✓</div><strong>Stay on track</strong><p>Keep your semester organized, one course at a time.</p></div>
+      <div class="sidebar-footer">STUDENT WORKSPACE<br><span>Course planner · v1.0</span></div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar"><div class="crumb">Workspace <span>/</span> My Courses</div><div class="status"><span class="status-dot"></span> Saved in this browser</div></header>
+      <section class="welcome"><div><div class="eyebrow">YOUR SEMESTER, SIMPLIFIED</div><h1>Student Course Management</h1><p class="subtitle">Keep your semester organized.</p></div><div class="term-chip">ACADEMIC WORKSPACE <span>✦</span></div></section>
+      <section class="stats">
+        <article class="stat-card"><div class="stat-top"><span>Total courses</span><span class="stat-icon purple">▤</span></div><div class="stat-number" id="courseCount">8</div><div class="stat-foot">Courses in your list</div></article>
+        <article class="stat-card"><div class="stat-top"><span>Total credit units</span><span class="stat-icon green">◈</span></div><div class="stat-number" id="unitCount">18</div><div class="stat-foot">Across all courses</div></article>
+        <article class="stat-card"><div class="stat-top"><span>Average units</span><span class="stat-icon amber">⌁</span></div><div class="stat-number" id="averageUnits">2.3</div><div class="stat-foot">Units per course</div></article>
+      </section>
+      <section class="course-panel">
+        <div class="panel-heading"><div><h2>Your courses</h2><p>Manage your courses and keep track of credit units.</p></div><button class="primary-btn" id="addCourseBtn">＋ Add course</button></div>
+        <div class="toolbar"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search course code or title..."></label><div class="toolbar-actions"><button class="secondary-btn" id="importBtn">↑ Import file</button><button class="secondary-btn" id="exportBtn">↓ Download CSV</button><button class="secondary-btn" id="jsonBtn">Download JSON</button><input type="file" id="fileInput" accept=".csv,.json,text/csv,application/json" hidden></div></div>
+        <div class="table-wrap"><table><thead><tr><th>COURSE CODE</th><th>COURSE TITLE</th><th>UNITS</th><th class="action-heading">ACTIONS</th></tr></thead><tbody id="courseTable"></tbody></table><div id="emptyState" class="empty-state" hidden>No courses found. Try another search or add a course.</div></div>
+        <div class="table-footer"><span id="showingCount">Showing 8 courses</span><span>Changes save automatically on this device</span></div>
+      </section>
+      <footer class="page-footer"><span>Student Course Management</span><span>Built for learning · GitHub Pages edition</span></footer>
+    </main>
+  </div>
+  <dialog id="courseDialog"><form id="courseForm" method="dialog"><div class="dialog-head"><div><div class="eyebrow">COURSE DETAILS</div><h2 id="dialogTitle">Add a course</h2></div><button type="button" class="close-btn" id="closeDialog" aria-label="Close">×</button></div><label>Course code<input id="courseCode" required maxlength="30" placeholder="e.g. COS 201"></label><label>Course title<input id="courseTitle" required maxlength="120" placeholder="e.g. Computer Programming I"></label><label>Credit units<input id="courseUnits" required type="number" min="1" max="30" step="1" placeholder="e.g. 3"></label><div class="dialog-actions"><button type="button" class="secondary-btn" id="cancelDialog">Cancel</button><button type="submit" class="primary-btn">Save course</button></div><p class="form-error" id="formError" role="alert"></p></form></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body></html>
