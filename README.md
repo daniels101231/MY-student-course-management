@@ -1,6 +1,6 @@
 # Student Course Management — GitHub Pages Edition
 
-A static HTML/CSS/JavaScript version of Student Course Management, designed to be published with GitHub Pages. It does not require Python, Flask, Render, or `requirements.txt`.
+An HTML/CSS/JavaScript version of Student Course Management, designed to be published with GitHub Pages. It does not require Python, Flask, Render, or `requirements.txt`.
 
 ## Features
 - Add, edit, delete, and search courses
